@@ -1,5 +1,5 @@
 
-// E.g mergining operation in merge sort 
+// E.g merging operation in merge sort 
 int fn(vector<int>& arr1, vector<int>& arr2) {
     int i = 0, j = 0, ans = 0;
 
