@@ -88,9 +88,3 @@ bool check(int x) {
     // this function is implemented depending on the problem
     return BOOLEAN;
 }
-
-
-bool check(int x) {
-    // this function is implemented depending on the problem
-    return BOOLEAN;
-}
