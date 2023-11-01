@@ -139,3 +139,12 @@ void findPathSum(TreeNode* root, int sum, vector<int>& path) {
     // Backtrack to explore other paths
     path.pop_back();
 }
+
+TreeNode* invertTree(TreeNode* root) {
+    if (root==nullptr)
+        return root;
+    swap(root->left,root->right);
+    invertTree(root->left);
+    invertTree(root->right);
+    return root;
+}
