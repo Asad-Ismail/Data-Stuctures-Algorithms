@@ -1,82 +1,35 @@
 #include <iostream>
 #include <vector>
 
-// A function to check if the current guess is valid
-// This function will be problem-specific and must be implemented based on the given problem
+// Problem-specific function to check if the current guess is valid.
 bool is_valid(int guess) {
-    // ...
+    // Implement this based on the given problem.
+    // Example: return guess >= some_condition;
 }
 
+// Generic binary search template.
 int binary_search(int low, int high) {
     while (low < high) {
         int mid = low + (high - low) / 2;
-
         if (is_valid(mid)) {
-            // If the mid value satisfies the condition, we move the high boundary
+            // Narrow the search to the lower half, including mid.
             high = mid;
         } else {
-            // If the mid value does not satisfy the condition, we move the low boundary
+            // Narrow the search to the upper half, excluding mid.
             low = mid + 1;
         }
     }
-
+    // Low is the smallest index at which is_valid is true.
     return low;
 }
 
-int binary_search(int low, int high) {
-    while (low < high) {
-        int mid = low + (high - low) / 2;
-
-        if (is_valid(mid)) {
-            // Update high boundary and store the result
-            high = mid;
-            // If you need the minimum value that satisfies the condition, store mid in the result here
-        } else {
-            // Update low boundary
-            low = mid + 1;
-            // If you need the maximum value that does not satisfy the condition, store mid in the result here
-        }
-    }
-
-    // Return the appropriate result based on the problem requirements
-    // For the minimum value that satisfies the condition, return high (or low)
-    // For the maximum value that does not satisfy the condition, return high - 1 (or low - 1)
-    return /* appropriate result */;
-}
-
-
-int binary_search(int low, int high) {
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-
-        if (is_valid(mid)) {
-            // Update high boundary and store the result
-            high = mid - 1;
-            // If you need the maximum value that satisfies the condition, store mid in the result here
-        } else {
-            // Update low boundary
-            low = mid + 1;
-            // If you need the minimum value that does not satisfy the condition, store mid in the result here
-        }
-    }
-
-    // Return the appropriate result based on the problem requirements
-    // For the maximum value that satisfies the condition, return high + 1
-    // For the minimum value that does not satisfy the condition, return low
-    return /* appropriate result */;
-}
-
-
-
+// Example usage of the binary search template.
 int main() {
     int low = 0;
-    int high = 100; // Set appropriate initial low and high values
+    int high = 100; // Set initial values based on the problem.
 
     int result = binary_search(low, high);
     std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
-
-
-
