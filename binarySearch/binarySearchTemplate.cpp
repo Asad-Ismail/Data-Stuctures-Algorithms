@@ -40,6 +40,20 @@ int binary_search_max(int low, int high) {
     return low;
 }
 
+int findLastOccurrence(std::vector<int>& nums, int target) {
+    int low = 0, high = nums.size() - 1;
+    while (low < high) {
+        int mid = low + (high - low + 1) / 2;
+        if (nums[mid] <= target) {
+            // Move towards the end of the array.
+            low = mid;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return (nums[low] == target) ? low : -1; // Check if the target is actually found.
+}
+
 
 
 // Example usage of the binary search template.
