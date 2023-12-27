@@ -7,7 +7,7 @@ bool is_valid(int guess) {
     // Example: return guess >= some_condition;
 }
 
-// Generic binary search template.
+// Generic binary search template. Can also be used to find min element
 int binary_search(int low, int high) {
     while (low < high) {
         int mid = low + (high - low) / 2;
@@ -22,6 +22,25 @@ int binary_search(int low, int high) {
     // Low is the smallest index at which is_valid is true.
     return low;
 }
+
+// Generic binary search template to find the maximum value satisfying is_valid.
+int binary_search_max(int low, int high) {
+    while (low < high) {
+        // Use ceil of the middle to avoid infinite loops and ensure progress.
+        int mid = low + (high - low + 1) / 2;
+        if (is_valid(mid)) {
+            // If mid is valid, this could be the maximum, so move the low boundary up.
+            low = mid;
+        } else {
+            // If mid is not valid, exclude it and move the high boundary down.
+            high = mid - 1;
+        }
+    }
+    // Low is now the maximum index where is_valid is true.
+    return low;
+}
+
+
 
 // Example usage of the binary search template.
 int main() {
